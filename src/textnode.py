@@ -1,15 +1,15 @@
 from enum import Enum
 
 class TextType(Enum):
-    PLAIN = 1
-    BOLD = 2
-    ITALIC = 3
-    CODE_TEXT = 4
-    LINK = 5
-    IMAGE = 6
+    TEXT = "text"
+    BOLD = "bold"
+    ITALIC = "italic"
+    CODE = "code"
+    LINK = "link"
+    IMAGE = "image"
     
 class TextNode:
-    def __init__(self, text, text_type=TextType.PLAIN, url=None):
+    def __init__(self, text, text_type=TextType.TEXT, url=None):
         self.text = text
         self.text_type = text_type
         self.url = url
@@ -21,4 +21,4 @@ class TextNode:
                 self.text_type == other.text_type and 
                 self.url == other.url)
     def __repr__(self):
-        return f"TextNode({self.text}, {self.text_type}, {self.url})"
+        return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
